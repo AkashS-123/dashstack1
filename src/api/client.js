@@ -5,7 +5,7 @@
  * (see vite.config.js). To point at a deployed server instead, set
  * VITE_API_URL, e.g. VITE_API_URL=https://my-api.example.com
  */
-const BASE = import.meta.env.VITE_API_URL || '/api'
+const BASE = import.meta.env.VITE_API_URL || 'https://dashstack1.onrender.com/'
 
 export class ApiError extends Error {
   constructor(message, status) {
