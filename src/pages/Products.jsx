@@ -66,15 +66,29 @@ export default function Products() {
         <p className="text-sm font-semibold opacity-90">{banner.dates}</p>
         <h2 className="mt-3 max-w-md text-3xl font-extrabold leading-tight sm:text-4xl">{banner.title}</h2>
         <p className="mt-3 text-sm opacity-90">{banner.note}</p>
-        <button type="button" className="mt-6 rounded-lg bg-[#FF9500] px-7 py-3 text-sm font-bold text-white hover:bg-[#E88600]">
-          Get Started
-        </button>
-        <button type="button" onClick={goPrev} aria-label="Previous banner" className="absolute left-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white text-primary">
-          <ChevronLeft size={18} />
-        </button>
-        <button type="button" onClick={goNext} aria-label="Next banner" className="absolute right-3 top-1/2 grid h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white text-primary">
-          <ChevronRight size={18} />
-        </button>
+        <div className="mt-6 flex items-center justify-between gap-3 sm:block">
+  <button type="button" className="rounded-lg bg-[#FF9500] px-7 py-3 text-sm font-bold text-white hover:bg-[#E88600]">
+    Get Started
+  </button>
+
+  {/* Phones: arrows sit in the flow beside the button so they never cover the text. */}
+  <div className="flex gap-2 sm:hidden">
+    <button type="button" onClick={goPrev} aria-label="Previous banner" className="grid h-10 w-10 place-items-center rounded-full bg-white text-primary">
+      <ChevronLeft size={18} />
+    </button>
+    <button type="button" onClick={goNext} aria-label="Next banner" className="grid h-10 w-10 place-items-center rounded-full bg-white text-primary">
+      <ChevronRight size={18} />
+    </button>
+  </div>
+</div>
+
+{/* Tablet and desktop: arrows on the left and right edges, as in the design. */}
+<button type="button" onClick={goPrev} aria-label="Previous banner" className="absolute left-3 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white text-primary sm:grid">
+  <ChevronLeft size={18} />
+</button>
+<button type="button" onClick={goNext} aria-label="Next banner" className="absolute right-3 top-1/2 hidden h-10 w-10 -translate-y-1/2 place-items-center rounded-full bg-white text-primary sm:grid">
+  <ChevronRight size={18} />
+</button>
       </section>
 
       {loading || error ? (
